@@ -15,8 +15,7 @@ class indexController extends BaseController
         $token = $request->header('token');
         $User_Admin = Login::query()
             ->where('token',$token)->first();
-        $User_info = User::query()
-            ->where('id',$User_Admin->id)->first();
+        $User_info = User::query()->get();
         return response()->json(response_data(0,$User_info,'加载成功'));
     }
     public function loginVerify(Request $request) {
