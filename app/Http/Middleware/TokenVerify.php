@@ -24,9 +24,6 @@ class TokenVerify
             ->where('token', $token)->first();
         if(empty($User)) {
             return $this->response(response_data(1,null,'你已退出登录，请重新登录'));
-        } else {
-            $User->token = null;
-            $User->save();
         }
         $request->setUserResolver(function () use($User){
             return $User;
