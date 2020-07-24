@@ -20,8 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     Route::post('/user/{id}','indexController@getUser');
     Route::post('/test/login','indexController@loginVerify');
+    Route::get('/home/info','BolgsInfoController@get_bolgs_info');
+    Route::post('/blog/config','BolgsInfoController@set_blogs_content');
+    Route::post('/blog/content','BolgsInfoController@blogs_content');
 
-    Route::middleware('auth_api')->group(function () {
+
+Route::middleware('auth_api')->group(function () {
     Route::get('/test/info','indexController@getUser');
     Route::get('/test/data','tabledata@alltable')->middleware('auth:api');
     });
