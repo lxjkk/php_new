@@ -10,6 +10,7 @@ class BolgsInfoController extends BaseController
 {
     public function get_bolgs_info() {
         $query = BolgsTable::query()->get();
+        $query->makeHidden('content');
         return response_data(0, $query, '');
     }
 
