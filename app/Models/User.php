@@ -22,8 +22,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends Model
+class User extends BaseModel
 {
     //
     protected $table = 'users';
+    protected $casts = [
+        'updated_at' => 'datetime:Y-m-d',
+        'created_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

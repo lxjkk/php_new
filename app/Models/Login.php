@@ -28,5 +28,8 @@ class Login extends Model
     */
     protected $table = 'login';
     protected $primaryKey = 'id';
-    public $timestamps=false;
+    protected $casts = [
+        'updated_at' => 'datetime:Y-m-d',
+        'created_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

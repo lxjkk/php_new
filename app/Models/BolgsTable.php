@@ -36,5 +36,8 @@ class BolgsTable extends Model
     */
     protected $table = 'bolgs_table';
     protected $primaryKey = 'id';
-    public $timestamps = ['created_at', 'updated_at'];
+    protected $casts = [
+        'updated_at' => 'datetime:Y-m-d',
+        'created_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }
